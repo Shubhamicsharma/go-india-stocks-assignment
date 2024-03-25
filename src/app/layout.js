@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/sidebar";
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +13,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+       <Head>
+        <script src="https://kit.fontawesome.com/46fc7c2460.js" crossorigin="anonymous"></script>
+        {/* Other meta tags, title, and links */}
+      </Head>
+      <body className={inter.className}>
+      <div className="flex">
+      <Sidebar  />
+      <div className="flex-grow">{children}</div>
+    </div>
+      </body>
     </html>
   );
 }
